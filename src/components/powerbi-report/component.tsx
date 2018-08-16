@@ -12,6 +12,7 @@ export interface IProps extends IEmbedConfiguration {
   filterPaneEnabled?: boolean;
   navContentPaneEnabled?: boolean;
   onEmbedded?: (embed: Embed) => any;
+  className?:string;
 }
 
 export class Report extends React.Component<IProps, {}> {
@@ -79,8 +80,9 @@ export class Report extends React.Component<IProps, {}> {
   }
 
   render() {
+    const {className} = this.props;
     return (
-      <div className="powerbi-frame" ref={(ref) => this.rootElement = ref}></div>
+      <div className={`powerbi-frame ${className}`} ref={(ref) => this.rootElement = ref}></div>
     )
   }
 }

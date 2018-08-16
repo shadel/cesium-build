@@ -183,7 +183,8 @@ var Report = /** @class */ (function (_super) {
     };
     Report.prototype.render = function () {
         var _this = this;
-        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: "powerbi-frame", ref: function (ref) { return _this.rootElement = ref; } }));
+        var className = this.props.className;
+        return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", { className: "powerbi-frame " + className, ref: function (ref) { return _this.rootElement = ref; } }));
     };
     return Report;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));

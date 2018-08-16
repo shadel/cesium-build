@@ -9,6 +9,7 @@ export interface IProps extends IEmbedConfiguration {
     filterPaneEnabled?: boolean;
     navContentPaneEnabled?: boolean;
     onEmbedded?: (embed: Embed) => any;
+    className?: string;
 }
 export declare class Report extends React.Component<IProps, {}> {
     component: Embed;
