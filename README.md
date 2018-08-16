@@ -1,4 +1,4 @@
-# react-powerbi
+# react-powerbi-client
 Power BI for React JS which provides components and services to enabling developers to easily embed Power BI reports into their applications.
 
 ## Getting started
@@ -6,13 +6,13 @@ Power BI for React JS which provides components and services to enabling develop
 Install
 
 ```bash
-npm install --save react-powerbi
+npm install --save react-powerbi-client
 ```
 
 Include
 
 ```javascript
-import { Report } from 'react-powerbi';
+import { Report } from 'react-powerbi-client';
 ```
 
 Render component
@@ -31,7 +31,7 @@ Render component
 ## Example
 ```javascript
 import React, { Component } from 'react';
-import { Report } from 'react-powerbi';
+import { Report } from 'react-powerbi-client';
 
 export default class extends Component {
   onEmbedded(embed) {
