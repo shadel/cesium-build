@@ -3,7 +3,7 @@ import {service, models, Embed, IEmbedConfiguration} from 'powerbi-client';
 import * as util from '../../util';
 declare var powerbi: service.Service;
 
-export interface IProps {
+export interface IProps extends IEmbedConfiguration {
   id: string;
   accessToken: string;
   embedUrl: string;

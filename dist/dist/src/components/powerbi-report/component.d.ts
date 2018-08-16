@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { models, Embed, IEmbedConfiguration } from 'powerbi-client';
-export interface IProps {
+export interface IProps extends IEmbedConfiguration {
     id: string;
     accessToken: string;
     embedUrl: string;
