@@ -1,6 +1,6 @@
 {
   "name": "react-powerbi-client",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A library which wraps the core powerbi-client library by providing components to easily embed within your react applications.",
   "main": "dist/react-powerbi.js",
   "typings": "dist/dist/src/react-powerbi.d.ts",
