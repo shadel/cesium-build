@@ -1,5 +1,5 @@
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: {
     'react-powerbi': './src/react-powerbi.ts',
   },
