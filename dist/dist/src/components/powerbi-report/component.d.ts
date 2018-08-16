@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { models, Embed, IEmbedConfiguration } from 'powerbi-client';
 export interface IProps {
+    id: string;
     accessToken: string;
     embedUrl: string;
     pageName?: string;

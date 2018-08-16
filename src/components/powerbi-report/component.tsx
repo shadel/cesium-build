@@ -4,6 +4,7 @@ import * as util from '../../util';
 declare var powerbi: service.Service;
 
 export interface IProps {
+  id: string;
   accessToken: string;
   embedUrl: string;
   pageName?: string;
