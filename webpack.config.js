@@ -7,7 +7,7 @@ module.exports = {
     path: __dirname + "/dist",
     filename: '[name].js',
     library: 'react-powerbi-client',
-    libraryTarget: 'commonjs'
+    libraryTarget: 'umd'
   },
   externals: {
     "powerbi-client": "powerbi-client",
