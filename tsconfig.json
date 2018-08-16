@@ -1,12 +1,16 @@
 {
     "compilerOptions": {
-        "module": "umd",
+        "module":"es2015",
         "moduleResolution": "node",
         "target": "es5",
         "jsx": "react",
         "noImplicitAny": true,
-        "sourceMap": true,
-        "outDir": "dist"
+        "sourceMap": false,
+        "outDir": "dist",
+        "declaration": true,
+        "typeRoots": [
+          "node_modules/@types"
+        ]
     },
     "exclude": [
         "node_modules",

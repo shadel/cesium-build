@@ -1,20 +1,20 @@
 import * as React from 'react';
-import * as pbi from 'powerbi-client';
+import {service, models, Embed, IEmbedConfiguration} from 'powerbi-client';
 import * as util from '../../util';
-declare var powerbi: pbi.service.Service;
+declare var powerbi: service.Service;
 
 export interface IProps {
   accessToken: string;
   embedUrl: string;
   pageName?: string;
-  filters?: pbi.models.IFilter[];
+  filters?: models.IFilter[];
   filterPaneEnabled?: boolean;
   navContentPaneEnabled?: boolean;
-  onEmbedded?: (embed: pbi.Embed) => any;
+  onEmbedded?: (embed: Embed) => any;
 }
 
 export class Report extends React.Component<IProps, {}> {
-  component: pbi.Embed;
+  component: Embed;
   rootElement: HTMLElement;
   
   constructor(props: IProps) {
@@ -43,7 +43,7 @@ export class Report extends React.Component<IProps, {}> {
     this.reset();
   }
 
-  embed(config: pbi.IEmbedConfiguration): pbi.Embed {
+  embed(config: IEmbedConfiguration): Embed {
     this.component = powerbi.embed(this.rootElement, config);
     if (this.props.onEmbedded) {
       this.props.onEmbedded(this.component);
@@ -72,8 +72,8 @@ export class Report extends React.Component<IProps, {}> {
     this.setState(nextState);
   }
 
-  validateConfig(config: pbi.IEmbedConfiguration) {
-    const errors = pbi.models.validateReportLoad(config);
+  validateConfig(config: IEmbedConfiguration) {
+    const errors = models.validateReportLoad(config);
     return (errors === undefined);
   }
 

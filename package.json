@@ -1,20 +1,18 @@
 {
-  "name": "react-powerbi",
-  "version": "0.0.1",
+  "name": "react-powerbi-client",
+  "version": "0.0.2",
   "description": "A library which wraps the core powerbi-client library by providing components to easily embed within your react applications.",
   "main": "dist/react-powerbi.js",
-  "typings": "dist/react-powerbi.d.ts",
+  "typings": "dist/dist/src/react-powerbi.d.ts",
   "scripts": {
-    "build": "rm -rf dist && webpack",
-    "prepublish": "typings install && tsc",
+    "build": "rmdir /s /q dist && webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "typings": "typings",
     "webpack": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Microsoft/PowerBI-React.git"
+    "url": "git+https://github.com/shadel/PowerBI-React.git"
   },
   "keywords": [
     "microsoft",
@@ -33,18 +31,19 @@
   "author": "Microsoft Power BI Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Microsoft/PowerBI-React/issues"
+    "url": "https://github.com/shadel/PowerBI-React/issues"
   },
-  "homepage": "https://github.com/Microsoft/PowerBI-React#readme",
+  "homepage": "https://github.com/shadel/PowerBI-React#readme",
   "dependencies": {
     "powerbi-client": "^2.1.1",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-dom": "^15.3.1",
+    "ts-loader": "^4.4.2",
+    "webpack": "^4.16.5"
   },
   "devDependencies": {
-    "ts-loader": "^0.8.2",
-    "typescript": "^1.8.10",
+    "typescript": "^3.0.1",
     "typings": "^1.3.3",
-    "webpack": "^1.13.2"
+    "webpack-cli": "^3.1.0"
   }
 }

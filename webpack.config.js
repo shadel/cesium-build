@@ -1,4 +1,5 @@
 module.exports = {
+  mode: "production",
   entry: {
     'react-powerbi': './src/react-powerbi.ts',
   },
@@ -6,7 +7,7 @@ module.exports = {
     path: __dirname + "/dist",
     filename: '[name].js',
     library: 'react-powerbi',
-    libraryTarget: 'umd'
+    libraryTarget: 'commonjs'
   },
   externals: {
     "powerbi-client": "powerbi-client",
@@ -14,13 +15,20 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
   },
   module: {
-    loaders: [
+    rules: [
       { test: /\.map$/, loader: 'ignore-loader' },
       { test: /\.d.ts$/, loader: 'ignore-loader' },
-      { test: /\.tsx?$/, exclude: /\.d.ts$/, loader: 'ts-loader' },
+      { test: /\.tsx?$/, exclude: /\.d.ts$/,
+      use: [
+        {
+          loader: require.resolve('ts-loader'),
+          options: {
+          },
+        },
+      ],},
       { test: /\.json$/, loader: 'json-loader' }
     ]
   }
