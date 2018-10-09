@@ -1,21 +1,39 @@
+const CopywebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+
+const cesiumSource = 'node_modules/cesium/Source';
+const cesiumWorkers = '../Build/Cesium/Workers';
+
 module.exports = {
+	context: __dirname,
   mode: "development",
   entry: {
-    'react-powerbi': './src/react-powerbi.ts',
+    'cesium-build': './src/index.ts',
   },
   output: {
-    path: __dirname + "/dist",
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    library: 'react-powerbi-client',
-    libraryTarget: 'umd'
+    library: 'cesium-build',
+    libraryTarget: 'umd',
+    // Needed to compile multiline strings in Cesium
+    sourcePrefix: ''
   },
-  externals: {
-    "powerbi-client": "powerbi-client",
-    "react": "react"
+  amd: {
+      // Enable webpack-friendly use of require in Cesium
+      toUrlUndefined: true
+  },
+  node: {
+      // Resolve node module use of fs
+      fs: 'empty'
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+		alias: {
+			// Cesium module name
+			cesium: path.resolve(__dirname, cesiumSource)
+		}
   },
   module: {
     rules: [
@@ -31,5 +49,15 @@ module.exports = {
       ],},
       { test: /\.json$/, loader: 'json-loader' }
     ]
-  }
+  },
+  plugins: [
+      // Copy Cesium Assets, Widgets, and Workers to a static directory
+      new CopywebpackPlugin([ { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' } ]),
+      new CopywebpackPlugin([ { from: path.join(cesiumSource, 'Assets'), to: 'Assets' } ]),
+      new CopywebpackPlugin([ { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' } ]),
+      new webpack.DefinePlugin({
+          // Define relative base path in cesium for loading assets
+          CESIUM_BASE_URL: JSON.stringify('')
+      })
+],
 };

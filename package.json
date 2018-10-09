@@ -2,8 +2,8 @@
   "name": "react-powerbi-client",
   "version": "0.0.3",
   "description": "A library which wraps the core powerbi-client library by providing components to easily embed within your react applications.",
-  "main": "dist/react-powerbi.js",
-  "typings": "dist/dist/src/react-powerbi.d.ts",
+  "main": "dist/cesium-build.js",
+  "typings": ["dist/dist/src/index.d.ts", "typings/cesium.d.ts"],
   "scripts": {
     "build": "rmdir /s /q dist && webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,36 +12,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shadel/PowerBI-React.git"
+    "url": "git+https://github.com/shadel/cesium-build.git"
   },
   "keywords": [
-    "microsoft",
-    "powerbi",
+    "cesium",
     "react",
-    "javascript",
-    "embedded",
-    "reports",
-    "bi",
-    "business",
-    "intelligence"
+    "javascript"
   ],
   "files": [
     "dist"
   ],
-  "author": "Microsoft Power BI Team",
+  "author": "Shadel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shadel/PowerBI-React/issues"
+    "url": "https://github.com/shadel/cesium-build/issues"
   },
-  "homepage": "https://github.com/shadel/PowerBI-React#readme",
+  "homepage": "https://github.com/shadel/cesium-build#readme",
   "dependencies": {
-    "powerbi-client": "^2.1.1",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
     "ts-loader": "^4.4.2",
     "webpack": "^4.16.5"
   },
   "devDependencies": {
+    "cesium": "^1.50.0",
+    "copy-webpack-plugin": "^4.5.2",
     "typescript": "^3.0.1",
     "typings": "^1.3.3",
     "webpack-cli": "^3.1.0"
