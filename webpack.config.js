@@ -55,7 +55,7 @@ module.exports = {
       new CopywebpackPlugin([ { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' } ]),
       new CopywebpackPlugin([ { from: path.join(cesiumSource, 'Assets'), to: 'Assets' } ]),
       new CopywebpackPlugin([ { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' } ]),
-      new CopywebpackPlugin([ { from: path.join(__dirname, 'typings'), to: 'typings' } ]),
+      new CopywebpackPlugin([ { from: path.join(__dirname, 'typings'), to: 'dist/src' } ]),
       new webpack.DefinePlugin({
           // Define relative base path in cesium for loading assets
           CESIUM_BASE_URL: JSON.stringify('')
