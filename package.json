@@ -1,5 +1,5 @@
 {
-  "name": "react-powerbi-client",
+  "name": "cesium-build",
   "version": "0.0.3",
   "description": "A library which wraps the core powerbi-client library by providing components to easily embed within your react applications.",
   "main": "dist/cesium-build.js",
