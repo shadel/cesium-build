@@ -32,7 +32,7 @@ module.exports = {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
 		alias: {
 			// Cesium module name
-			cesium: path.resolve(__dirname, cesiumSource)
+			"./cesium": path.resolve(__dirname, cesiumSource)
 		}
   },
   module: {
@@ -47,7 +47,22 @@ module.exports = {
           },
         },
       ],},
-      { test: /\.json$/, loader: 'json-loader' }
+      { test: /\.json$/, loader: 'json-loader' },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
+      },{
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
+      }
     ]
   },
   plugins: [
@@ -55,7 +70,7 @@ module.exports = {
       new CopywebpackPlugin([ { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' } ]),
       new CopywebpackPlugin([ { from: path.join(cesiumSource, 'Assets'), to: 'Assets' } ]),
       new CopywebpackPlugin([ { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' } ]),
-      new CopywebpackPlugin([ { from: path.join(__dirname, 'typings'), to: 'dist/src' } ]),
+      new CopywebpackPlugin([ { from: path.join(__dirname, 'src/cesium'), to: 'dist/src/cesium' } ]),
       new webpack.DefinePlugin({
           // Define relative base path in cesium for loading assets
           CESIUM_BASE_URL: JSON.stringify('')
